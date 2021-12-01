@@ -7,6 +7,7 @@ const connection = mysql.createConnection({
   database: "login",
 });
 
+// Cria a tabela Users
 function createTable(conn) {
   const sql =
     "CREATE TABLE IF NOT EXISTS users (\n" +
@@ -23,11 +24,24 @@ function createTable(conn) {
   });
 }
 
+// Adiciona novos usuarios
+function addRows(conn) {
+  const sql = "INSERT INTO users(Email, Password) VALUES ?";
+  const values = [
+    ["Antonio@email.com", "12345678901"],
+    ["Paulo@email.com", "09876543210"],
+    ["Ricardo@email.com", "12312312399"],
+  ];
+  conn.query(sql, [values], function (error, results, fields) {
+    if (error) return console.log(error);
+    console.log("adicionou registros!");
+    conn.end();
+  });
+}
 
 connection.connect(function (err) {
   if (err) return console.log(err);
-
   console.log("conectou!");
-
   createTable(connection);
+  addRows(connection);
 });
