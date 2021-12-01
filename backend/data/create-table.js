@@ -23,21 +23,6 @@ function createTable(conn) {
   });
 }
 
-function addRows(conn) {
-  const sql = "INSERT INTO users(Email, Password) VALUES ?";
-  const values = [
-    ["Antonio@email.com", "12345678901"],
-    ["Paulo@email.com", "09876543210"],
-    ["Ricardo@email.com", "12312312399"],
-  ];
-  conn.query(sql, [values], function (error, results, fields) {
-    if (error) return console.log(error);
-
-    console.log("adicionou registros!");
-
-    conn.end();
-  });
-}
 
 connection.connect(function (err) {
   if (err) return console.log(err);
@@ -45,5 +30,4 @@ connection.connect(function (err) {
   console.log("conectou!");
 
   createTable(connection);
-  addRows(connection);
 });
