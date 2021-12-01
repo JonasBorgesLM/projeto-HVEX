@@ -1,3 +1,8 @@
-.card  {
+.card {
   width: 476px;
+}
+
+.bg {
+  background: url("./img/background.png") center;
+  height: 100vh;
 }

@@ -1,12 +1,11 @@
-function User(id, email, password) {
-    this.id = id;
-    this.email = email;
-    this.password = password;
+// Modelo de usuario
+function User(email, password) {
+    this.Email = email;
+    this.Password = password;
   
     return {
-      id: id,
-      email: email,
-      password: password,
+      Email: email,
+      Password: password,
     };
   }
   

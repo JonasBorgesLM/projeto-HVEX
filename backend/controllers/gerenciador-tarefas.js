@@ -33,11 +33,9 @@ function listarUsuario(req, res) {
   );
 }
 
-// listar usuario por email
-function listarUsuarioEmail(req, res) {
-  const email = req.body.Email;
-
-  execSQLQuery(`SELECT * FROM users WHERE Email='${email}'`, res);
+// listar usuario por id
+function listarUsuarioID(req, res) {
+  execSQLQuery("SELECT * FROM users WHERE ID=" + parseInt(req.params.id), res);
 }
 
 // cadastrar usuario
@@ -73,7 +71,7 @@ function removerUsuario(req, res) {
 module.exports = {
   removerUsuario,
   atualizarUsuario,
-  listarUsuarioEmail,
+  listarUsuarioID,
   cadastrarUsuario,
   listarUsuarios,
   listarUsuario,

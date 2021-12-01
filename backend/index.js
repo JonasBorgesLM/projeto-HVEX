@@ -5,7 +5,7 @@ const cors = require("cors");
 const {
   removerUsuario,
   atualizarUsuario,
-  listarUsuarioEmail,
+  listarUsuarioID,
   cadastrarUsuario,
   listarUsuarios,
   listarUsuario,
@@ -23,8 +23,8 @@ app.get("/login-users", listarUsuarios);
 // listar usuario por email e senha
 app.post("/login-user", listarUsuario);
 
-// listar usuario por email
-app.post("/login-user-email", listarUsuarioEmail);
+// listar usuario por id
+app.post("/login-user-id/:id", listarUsuarioID);
 
 // cadastrar usuario
 app.post("/register-user", cadastrarUsuario);
